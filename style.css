@@ -1,0 +1,67 @@
+* {
+  background-color: antiquewhite;
+}
+
+input {
+  height: 30px;
+  width: 90px;
+}
+
+#word-display {
+  border: 10px solid black;
+  padding: 80px;
+  margin: 20px;
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#box {
+  display: flex;
+  /* container aligned into a column format */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#guessinput {
+  width: 250px;
+}
+
+#buttondiv {
+  display: flex;
+  flex-direction: row;
+}
+
+#submit,
+#refresh {
+  height: 80px;
+  width: 90px;
+  margin: 20px;
+  font-size: 20px;
+}
+
+#timer {
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+#timeisup {
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+#instructions {
+  text-align: center;
+  max-width: 800px;
+  font-size: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#result {
+  font-weight: bold;
+  font-size: 30px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="words.js"></script>
+    <script defer src="app.js"></script>
+
+    <title>Guess the word game Jon</title>
+  </head>
+  <body>
+    <div id="box">
+      <h1>GUESS THE WORD</h1>
+      <p id="instructions">
+        📝 Instructions: 1. A scrambled word appears above. 2. Type your guess
+        below. 3. Click “Submit” to check. 4. If correct, you’ll see a 🎉
+        message! 5. Click “Refresh New Word” to try again.
+      </p>
+      <div id="word-display"></div>
+      <p id="result"></p>
+      <p id="timeisup" class="hidden">⏰ The time has finished!</p>
+      <p id="timer">Time Left To Guess: 30s</p>
+      <input type="text" id="guessinput" />
+      <div id="buttondiv">
+        <button id="submit">Submit</button>
+        <button id="refresh">Refresh New Word</button>
+      </div>
+    </div>
+  </body>
+</html>
