@@ -11,14 +11,26 @@ const guessInputElement = document.querySelector("#guessinput");
 const wordDisplayElement = document.querySelector("#word-display");
 
 // functions
-
+let guessedWord;
 //rearrange the letters in the word & display it to the frontend
+function changeNewWord() {
+  const randomWordsIndex = Math.floor(Math.random() * words.length);
+  guessedWord = words[randomWordsIndex].Word;
+  const hint = words[randomWordsIndex].hint;
 
-const randomWordsIndex = Math.floor(Math.random() * words.length);
-const guessedWord = words[randomWordsIndex].Word;
-const hint = words[randomWordsIndex].hint;
+  guessedWordArray = guessedWord.split(""); // split the word into individual letters
 
-guessedWordArray = guessedWord.split(""); // split the word into individual letters
+  const randomizedWordArray = randomize(guessedWordArray);
+  console.log(randomizedWordArray);
+
+  //the random letters in an array combine into a string
+  const randomizedJoinWord = randomizedWordArray.join("");
+
+  //display the text on screen
+  wordDisplayElement.innerText = randomizedJoinWord + "\n\nWord Hint: " + hint;
+}
+
+changeNewWord();
 
 // Randomize the letters of the guessed word and display it -------------------------------------
 
@@ -37,14 +49,6 @@ function randomize(guessedWordArray) {
   }
   return guessedWordArray;
 }
-const randomizedWordArray = randomize(guessedWordArray);
-console.log(randomizedWordArray);
-
-//the random letters in an array combine into a string
-const randomizedJoinWord = randomizedWordArray.join("");
-
-//display the text on screen
-wordDisplayElement.innerText = randomizedJoinWord + "\n\nWord Hint: " + hint;
 
 // countdown for for the timer ---------------------------------------------------------------------------------------------------
 
@@ -70,8 +74,10 @@ submitButtonElement.addEventListener("click", () => {
   const formInput = guessInputElement.value;
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
+    timer = 0;
   } else {
     resultElement.innerText = "You guessed it wrong ❌";
+    timer = 0;
   }
 });
 
@@ -79,4 +85,7 @@ submitButtonElement.addEventListener("click", () => {
 refreshButtonElement.addEventListener("click", () => {
   guessInputElement.value = ""; //clear the input field first
   timeisupElement.style.visibility = "hidden";
+  timer = 30;
+
+  changeNewWord();
 });
