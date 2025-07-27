@@ -20,6 +20,7 @@ input {
   font-size: 30px;
   text-align: center;
   font-family: "Merriweather", sans-serif;
+  background-color: white;
 }
 
 #box {
@@ -39,24 +40,44 @@ input {
   flex-direction: row;
 }
 
-#submit,
-#refresh {
+#submit {
   height: 80px;
   width: 90px;
   margin: 20px;
   padding: 10px;
   font-size: 20px;
   border-radius: 20px;
+  background-color: green;
+  color: white;
+  font-family: "Helvetica";
+}
+
+#submit:hover {
+  background-color: white;
+  color: green;
+}
+
+#refresh {
+  height: 80px;
+  width: 120px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: white;
+  font-family: "Helvetica";
 }
 
 #timer {
   font-size: 30px;
   margin-top: 5px;
+  font-family: "Helvetica";
 }
 
 #timeisup {
   font-size: 30px;
   margin-top: 5px;
+  font-family: "Helvetica";
 }
 
 #instructions {

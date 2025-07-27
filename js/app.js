@@ -74,6 +74,12 @@ submitButtonElement.addEventListener("click", () => {
   const formInput = guessInputElement.value;
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
+    confetti({
+      particleCount: 100, // Number of confetti particles
+      spread: 70, // How wide the confetti spreads
+      origin: { y: 0.6 }, // Where the confetti originates from (e.g., center-bottom)
+      ticks: 50, //shorter duration
+    });
     timer = 0;
   } else {
     resultElement.innerText = "You guessed it wrong ❌";
@@ -85,6 +91,7 @@ submitButtonElement.addEventListener("click", () => {
 refreshButtonElement.addEventListener("click", () => {
   guessInputElement.value = ""; //clear the input field first
   timeisupElement.style.visibility = "hidden";
+  resultElement.innerText = "";
   timer = 30;
 
   changeNewWord();
