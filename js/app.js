@@ -5,13 +5,19 @@ const refreshButtonElement = document.querySelector("#refresh");
 const timerCountdownElement = document.querySelector("#timer");
 const timeisupElement = document.querySelector("#timeisup");
 const resultElement = document.querySelector("#result");
+const scoreElement = document.querySelector("#score");
+const highScoreElement = document.querySelector("#highscore");
 
 const guessInputElement = document.querySelector("#guessinput");
 
 const wordDisplayElement = document.querySelector("#word-display");
 
-// functions
+//defining stuff
 let guessedWord;
+let highScore = 0;
+
+// functions
+
 //rearrange the letters in the word & display it to the frontend
 function changeNewWord() {
   const randomWordsIndex = Math.floor(Math.random() * words.length);
@@ -74,6 +80,22 @@ submitButtonElement.addEventListener("click", () => {
   const formInput = guessInputElement.value;
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
+
+    //let the score be zero or get the updated score
+    let score = parseInt(localStorage.getItem("score")) || 0;
+    //add score by 1 everytime user guessed correctly
+    score += 1;
+    //update the score element text with updated score value
+    scoreElement.innerText = `Score: ${score}`;
+    //update the local storage with the new score value
+    localStorage.setItem("score", score);
+
+    // if the score is more than the current highscore value, replace the highscore
+    if (score > highScore) {
+      highScore = score;
+      highScoreElement.innerText = `Highscore: ${highScore} correct guesses`;
+    }
+
     confetti({
       particleCount: 100, // Number of confetti particles
       spread: 70, // How wide the confetti spreads
