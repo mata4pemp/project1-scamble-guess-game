@@ -7,6 +7,9 @@ const timeisupElement = document.querySelector("#timeisup");
 const resultElement = document.querySelector("#result");
 const scoreElement = document.querySelector("#score");
 const highScoreElement = document.querySelector("#highscore");
+const resetButtonElement = document.querySelector("#reset");
+
+const addMusicButtonElement = document.querySelector("#music");
 
 const guessInputElement = document.querySelector("#guessinput");
 
@@ -81,7 +84,7 @@ submitButtonElement.addEventListener("click", () => {
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
 
-    //let the score be zero or get the updated score
+    //UPDATE THE SCORE: let the score be zero or get the updated score
     let score = parseInt(localStorage.getItem("score")) || 0;
     //add score by 1 everytime user guessed correctly
     score += 1;
@@ -90,7 +93,7 @@ submitButtonElement.addEventListener("click", () => {
     //update the local storage with the new score value
     localStorage.setItem("score", score);
 
-    // if the score is more than the current highscore value, replace the highscore
+    // UPDATE THE HIGHSCORE: if the score is more than the current highscore value, replace the highscore
     if (score > highScore) {
       highScore = score;
       highScoreElement.innerText = `Highscore: ${highScore} correct guesses`;
@@ -107,6 +110,16 @@ submitButtonElement.addEventListener("click", () => {
     resultElement.innerText = "You guessed it wrong ❌";
     timer = 0;
   }
+});
+
+// when reset button is pressed
+resetButtonElement.addEventListener("click", () => {
+  score = 0;
+});
+
+//when add music button is pressed
+addMusicButtonElement.addEventListener("click", () => {
+  rickroll.play();
 });
 
 // when refresh new word button is pressed

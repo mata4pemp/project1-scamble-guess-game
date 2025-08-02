@@ -1,15 +1,16 @@
 * {
   background-color: antiquewhite;
+  font-family: "Patrick Hand", cursive;
 }
 
 h1 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Patrick Hand", cursive;
 }
 
 input {
-  height: 30px;
+  height: 70px;
   width: 90px;
+  font-size: 50px;
 }
 
 #word-display {
@@ -19,7 +20,7 @@ input {
   width: 300px;
   font-size: 30px;
   text-align: center;
-  font-family: "Merriweather", sans-serif;
+  font-family: "Patrick Hand", cursive;
   background-color: white;
 }
 
@@ -49,7 +50,7 @@ input {
   border-radius: 20px;
   background-color: green;
   color: white;
-  font-family: "Helvetica";
+  font-family: "Patrick Hand", cursive;
 }
 
 #submit:hover {
@@ -65,27 +66,69 @@ input {
   font-size: 20px;
   border-radius: 20px;
   background-color: white;
-  font-family: "Helvetica";
+  font-family: "Patrick Hand", cursive;
 }
 
+#reset {
+  height: 80px;
+  width: 120px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-radius: 20px;
+  background-color: blue;
+  font-family: "Patrick Hand", cursive;
+}
+
+#music {
+  height: 80px;
+  width: 120px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 20px;
+  color: black;
+  border-radius: 20px;
+  background-color: white;
+  font-family: "Patrick Hand", cursive;
+}
+
+#highscore,
 #score,
 #timer {
   font-size: 30px;
   margin-top: 5px;
-  font-family: "Helvetica";
+  font-family: "Patrick Hand", cursive;
+}
+
+#highscore,
+#score {
+  background-color: white;
+}
+
+#score-section {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  gap: 2em;
+  border-color: black;
+  border-width: thick;
+  border-style: solid;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 #timeisup {
   font-size: 30px;
   margin-top: 5px;
-  font-family: "Helvetica";
+  font-family: "Patrick Hand", cursive;
 }
 
 #instructions {
   text-align: center;
   max-width: 800px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-family: "Patrick Hand", cursive;
 }
 
 .hidden {

@@ -12,6 +12,14 @@
       href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- The song -->
+    <audio id="rickroll" src="rick-roll.MP3" preload="auto"></audio>
+
     <!-- confetti animation from canvas -->
     <script
       defer
@@ -26,20 +34,24 @@
     <div id="box">
       <h1>GUESS THE WORD</h1>
       <p id="instructions">
-        📝 Instructions: 1. A scrambled word appears above. 2. Type your guess
-        below. 3. Click “Submit” to check. 4. If correct, you’ll see a 🎉
-        message! 5. Click “Refresh New Word” to try again.
+        📝 Instructions: <br />1. A scrambled word appears above. <br />2. Type
+        your guess below. <br />3. Click “Submit” to check. <br />4. If correct,
+        you’ll see a 🎉 message! <br />5. Click “Refresh New Word” to try again.
       </p>
       <div id="word-display"></div>
       <p id="result"></p>
-      <p id="highscore">Highscore: 0</p>
-      <p id="score">Score: 0</p>
+      <div id="score-section">
+        <p id="highscore">Highscore: 0</p>
+        <p id="score">Score: 0</p>
+      </div>
       <p id="timeisup" class="hidden">⏰ The time has finished!</p>
       <p id="timer">Time Left To Guess: 30s</p>
       <input type="text" id="guessinput" />
       <div id="buttondiv">
         <button id="submit">Submit</button>
         <button id="refresh">Refresh New Word</button>
+        <button id="reset">Reset Game</button>
+        <button id="music">Add Music 🎵</button>
       </div>
     </div>
   </body>
