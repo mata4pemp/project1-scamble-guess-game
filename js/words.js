@@ -53,6 +53,54 @@ const words = [
   { Word: "Moon", hint: "Earth’s natural satellite" },
 ];
 
+const fruits = [
+  { Word: "Apple", hint: "A red or green fruit that keeps the doctor away" },
+  { Word: "Banana", hint: "A long yellow fruit that's high in potassium" },
+  { Word: "Orange", hint: "A round citrus fruit that's also a color" },
+  { Word: "Mango", hint: "A sweet tropical fruit with a large seed" },
+  { Word: "Grape", hint: "A small round fruit that grows in bunches" },
+  {
+    Word: "Pineapple",
+    hint: "A tropical fruit with spiky skin and sweet yellow flesh",
+  },
+];
+
+const animals = [
+  { Word: "Elephant", hint: "A large animal with a trunk and tusks" },
+  {
+    Word: "Kangaroo",
+    hint: "A marsupial that hops and carries its young in a pouch",
+  },
+  { Word: "Penguin", hint: "A bird that can't fly but swims very well" },
+  { Word: "Giraffe", hint: "An animal known for its very long neck" },
+  {
+    Word: "Dolphin",
+    hint: "An intelligent marine mammal known for jumping and squeaking",
+  },
+  { Word: "Tiger", hint: "A large striped wild cat" },
+];
+
+const countries = [
+  {
+    Word: "Canada",
+    hint: "A large country known for maple syrup and ice hockey",
+  },
+  {
+    Word: "Brazil",
+    hint: "A South American country famous for the Amazon and football",
+  },
+  { Word: "Japan", hint: "An island nation known for sushi and technology" },
+  { Word: "Egypt", hint: "A country with pyramids and the Nile River" },
+  {
+    Word: "France",
+    hint: "A European country known for wine, fashion, and the Eiffel Tower",
+  },
+  {
+    Word: "Australia",
+    hint: "A country and continent known for kangaroos and the Outback",
+  },
+];
+
 // const words = [
 //   {
 //     Word: "Planet",

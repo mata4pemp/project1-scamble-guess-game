@@ -9,6 +9,8 @@ const scoreElement = document.querySelector("#score");
 const highScoreElement = document.querySelector("#highscore");
 const resetButtonElement = document.querySelector("#reset");
 
+const selectCategoryElement = document.querySelector("#select-difficulty");
+
 const addMusicButtonElement = document.querySelector("#music");
 
 const guessInputElement = document.querySelector("#guessinput");
@@ -23,9 +25,24 @@ let highScore = 0;
 
 //rearrange the letters in the word & display it to the frontend
 function changeNewWord() {
-  const randomWordsIndex = Math.floor(Math.random() * words.length);
-  guessedWord = words[randomWordsIndex].Word;
-  const hint = words[randomWordsIndex].hint;
+  //Which category did user select: user selects from animals, countries categories
+  const selectedCategory = selectCategoryElement.value;
+
+  //which word list from words.js file is selected
+  let selectedWordList;
+  if (selectedCategory === "fruits") {
+    selectedWordList = fruits;
+  } else if (selectedCategory === "animals") {
+    selectedWordList = animals;
+  } else if (selectedCategory === "countries") {
+    selectedWordList = countries;
+  } else {
+    selectedWordList = words;
+  }
+
+  const randomWordsIndex = Math.floor(Math.random() * selectedWordList.length);
+  guessedWord = selectedWordList[randomWordsIndex].Word;
+  const hint = selectedWordList[randomWordsIndex].hint;
 
   guessedWordArray = guessedWord.split(""); // split the word into individual letters
 
@@ -103,7 +120,7 @@ submitButtonElement.addEventListener("click", () => {
       particleCount: 100, // Number of confetti particles
       spread: 70, // How wide the confetti spreads
       origin: { y: 0.6 }, // Where the confetti originates from (e.g., center-bottom)
-      ticks: 50, //shorter duration
+      ticks: 30, //shorter duration
     });
     timer = 0;
   } else {
@@ -114,7 +131,9 @@ submitButtonElement.addEventListener("click", () => {
 
 // when reset button is pressed
 resetButtonElement.addEventListener("click", () => {
-  score = 0;
+  localStorage.setItem("score", 0);
+  guessInputElement.value = "";
+  scoreElement.innerText = `Score: 0`;
 });
 
 //when add music button is pressed
@@ -129,5 +148,14 @@ refreshButtonElement.addEventListener("click", () => {
   resultElement.innerText = "";
   timer = 30;
 
+  changeNewWord();
+});
+
+//when the dropdown menu for word category is changed
+selectCategoryElement.addEventListener("change", () => {
+  guessInputElement.value = "";
+  timeisupElement.style.visibility = "hidden";
+  resultElement.innerText = "";
+  timer = 30;
   changeNewWord();
 });
