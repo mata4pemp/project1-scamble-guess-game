@@ -182,3 +182,22 @@ input {
   background-color: white;
   font-size: 35px;
 }
+
+#popup-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Stacking order z index */
+  z-index: 1000;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  /* pinned to the top left of thte viewport screen */
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+canvas {
+  position: fixed !important;
+  /* Need the confetti to be at the front of the popup */
+  z-index: 1005 !important;
+}

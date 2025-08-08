@@ -19,6 +19,7 @@ const wordDisplayElement = document.querySelector("#word-display");
 
 const closeButtonElement = document.querySelector("#close-button");
 const popup = document.querySelector("#win-popup");
+const popupBackgroundElement = document.querySelector("#popup-background");
 
 //defining stuff
 let guessedWord;
@@ -121,6 +122,14 @@ submitButtonElement.addEventListener("click", () => {
       highScore = score;
       highScoreElement.innerText = `Highscore: ${highScore} correct guesses`;
       popup.style.display = "block"; //display the popup to win the game
+      popupBackgroundElement.style.display = "block"; //display black background
+
+      confetti({
+        particleCount: 100, // Number of confetti particles
+        spread: 70, // How wide the confetti spreads
+        origin: { y: 0.6 }, // Where the confetti originates from (e.g., center-bottom)
+        ticks: 30, //shorter duration
+      });
     }
 
     confetti({
@@ -170,4 +179,5 @@ selectCategoryElement.addEventListener("change", () => {
 //Close Button On popup is pressed
 closeButtonElement.addEventListener("click", () => {
   popup.style.display = "none";
+  popupBackgroundElement.style.display = "none";
 });
