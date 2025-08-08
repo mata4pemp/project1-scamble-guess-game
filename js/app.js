@@ -145,6 +145,13 @@ submitButtonElement.addEventListener("click", () => {
   }
 });
 
+// ENTER Button is pressed after people guess the word
+guessInputElement.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    submitButtonElement.click(); //call the submit clicked event listener
+  }
+});
+
 // RESET BUTTON PRESSED: Scores go to zero
 resetButtonElement.addEventListener("click", () => {
   localStorage.setItem("score", 0);
