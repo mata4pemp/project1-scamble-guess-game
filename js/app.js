@@ -21,9 +21,9 @@ const wordDisplayElement = document.querySelector("#word-display");
 let guessedWord;
 let highScore = 0;
 
-// functions
+// functions ----------------------------------
 
-//rearrange the letters in the word & display it to the frontend
+//CHANGE THE WORD ON DISPLAY FUNCTION: rearrange the letters in the word & display it to the frontend
 function changeNewWord() {
   //Which category did user select: user selects from animals, countries categories
   const selectedCategory = selectCategoryElement.value;
@@ -40,13 +40,14 @@ function changeNewWord() {
     selectedWordList = words;
   }
 
+  //Generate a random number using floor/random, then select that word from the words.js array
   const randomWordsIndex = Math.floor(Math.random() * selectedWordList.length);
   guessedWord = selectedWordList[randomWordsIndex].Word;
   const hint = selectedWordList[randomWordsIndex].hint;
 
   guessedWordArray = guessedWord.split(""); // split the word into individual letters
 
-  const randomizedWordArray = randomize(guessedWordArray);
+  const randomizedWordArray = randomize(guessedWordArray); //randomize the individual letters
   console.log(randomizedWordArray);
 
   //the random letters in an array combine into a string
@@ -58,7 +59,7 @@ function changeNewWord() {
 
 changeNewWord();
 
-// Randomize the letters of the guessed word and display it -------------------------------------
+// RANDOMIZE LETTERS FUNCTION: Randomize the letters of the guessed word and display it -------------------------------------
 
 //fisher yates algo to randomize the letters in the array
 function randomize(guessedWordArray) {
@@ -76,7 +77,7 @@ function randomize(guessedWordArray) {
   return guessedWordArray;
 }
 
-// countdown for for the timer ---------------------------------------------------------------------------------------------------
+// COUNTDOWN FUNCTION: countdown for for the timer ---------------------------------------------------------------------------------------------------
 
 let timer = 30;
 function timercountdown() {
@@ -95,7 +96,9 @@ function timercountdown() {
 //call the function so timer starts counting down
 timercountdown();
 
-// when user types into text input to guess word submit button is pressed  -----------------------------------------------------
+//EVENT LISTENERS ---------------------------------------------------
+
+// SUBMIT BUTTON PRESSED: when user types into text input to guess word  -----------------------------------------------------
 submitButtonElement.addEventListener("click", () => {
   const formInput = guessInputElement.value;
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
@@ -129,19 +132,19 @@ submitButtonElement.addEventListener("click", () => {
   }
 });
 
-// when reset button is pressed
+// RESET BUTTON PRESSED: Scores go to zero
 resetButtonElement.addEventListener("click", () => {
   localStorage.setItem("score", 0);
   guessInputElement.value = "";
   scoreElement.innerText = `Score: 0`;
 });
 
-//when add music button is pressed
+// MUSIC BUTTON PRESSED: Play music
 addMusicButtonElement.addEventListener("click", () => {
   rickroll.play();
 });
 
-// when refresh new word button is pressed
+// REFRESH BUTTON PRESSED: Change a new word
 refreshButtonElement.addEventListener("click", () => {
   guessInputElement.value = ""; //clear the input field first
   timeisupElement.style.visibility = "hidden";
@@ -151,7 +154,7 @@ refreshButtonElement.addEventListener("click", () => {
   changeNewWord();
 });
 
-//when the dropdown menu for word category is changed
+// USER CHANGES WORD CATEGORY: Different word shows up
 selectCategoryElement.addEventListener("change", () => {
   guessInputElement.value = "";
   timeisupElement.style.visibility = "hidden";
