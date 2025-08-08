@@ -17,6 +17,9 @@ const guessInputElement = document.querySelector("#guessinput");
 
 const wordDisplayElement = document.querySelector("#word-display");
 
+const closeButtonElement = document.querySelector("#close-button");
+const popup = document.querySelector("#win-popup");
+
 //defining stuff
 let guessedWord;
 let highScore = 0;
@@ -117,6 +120,7 @@ submitButtonElement.addEventListener("click", () => {
     if (score > highScore) {
       highScore = score;
       highScoreElement.innerText = `Highscore: ${highScore} correct guesses`;
+      popup.style.display = "block"; //display the popup to win the game
     }
 
     confetti({
@@ -161,4 +165,9 @@ selectCategoryElement.addEventListener("change", () => {
   resultElement.innerText = "";
   timer = 30;
   changeNewWord();
+});
+
+//Close Button On popup is pressed
+closeButtonElement.addEventListener("click", () => {
+  popup.style.display = "none";
 });
