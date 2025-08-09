@@ -32,6 +32,8 @@ const startGameElement = document.querySelector("#startGameButton");
 let guessedWord;
 let highScore = 0;
 
+let guessedWordSet = new Set(); //all the words that people have guessed already will come into this set
+
 // functions ----------------------------------
 
 //CHANGE THE WORD ON DISPLAY FUNCTION: rearrange the letters in the word & display it to the frontend
@@ -51,10 +53,22 @@ function changeNewWord() {
     selectedWordList = words;
   }
 
+  // filters out the words already guessed in, filter callback function = false, wordObj is removed from array
+  const availableWords = selectedWordList.filter(
+    (wordObj) => !guessedWordSet.has(wordObj.Word)
+  );
+
+  // if there are no more remaining words in the category tell the user
+  if (availableWords.length === 0) {
+    wordDisplayElement.innerText =
+      "All the words in this category have been guessed. Please select another category to continue playing. Congrats you won!";
+    return;
+  }
+
   //Generate a random number using floor/random, then select that word from the words.js array
-  const randomWordsIndex = Math.floor(Math.random() * selectedWordList.length);
-  guessedWord = selectedWordList[randomWordsIndex].Word;
-  const hint = selectedWordList[randomWordsIndex].hint;
+  const randomWordsIndex = Math.floor(Math.random() * availableWords.length);
+  guessedWord = availableWords[randomWordsIndex].Word;
+  const hint = availableWords[randomWordsIndex].hint;
 
   guessedWordArray = guessedWord.split(""); // split the word into individual letters
 
@@ -114,6 +128,9 @@ submitButtonElement.addEventListener("click", () => {
   const formInput = guessInputElement.value;
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
+
+    //the word that was guessed add it into the set to prevent repeating of same word
+    guessedWordSet.add(guessedWord);
 
     //UPDATE THE SCORE: let the score be zero or get the updated score
     let score = parseInt(localStorage.getItem("score")) || 0;
