@@ -3,8 +3,44 @@
   font-family: "Patrick Hand", cursive;
 }
 
+/* Homepage Section Components */
+#homeSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#playerName {
+  width: 400px;
+  padding: 5px;
+}
+
+#startGameButton {
+  cursor: pointer;
+  width: 150px;
+  height: 85px;
+  font-size: 30px;
+  top: -8px;
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+  /* compeltely removes the game section so there is no empty space at the top */
+}
+
+#welcomeMessage {
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* Game Section Components */
 h1 {
   font-family: "Patrick Hand", cursive;
+  font-size: 40px;
 }
 
 #select-difficulty {
@@ -62,6 +98,7 @@ input {
   background-color: green;
   color: white;
   font-family: "Patrick Hand", cursive;
+  cursor: pointer;
 }
 
 #submit:hover {
@@ -78,6 +115,7 @@ input {
   border-radius: 20px;
   background-color: white;
   font-family: "Patrick Hand", cursive;
+  cursor: pointer;
 }
 
 #reset {
@@ -90,6 +128,7 @@ input {
   border-radius: 20px;
   background-color: blue;
   font-family: "Patrick Hand", cursive;
+  cursor: pointer;
 }
 
 #music {
@@ -102,6 +141,7 @@ input {
   border-radius: 20px;
   background-color: white;
   font-family: "Patrick Hand", cursive;
+  cursor: pointer;
 }
 
 #highscore,

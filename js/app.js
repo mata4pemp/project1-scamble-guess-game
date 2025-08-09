@@ -21,6 +21,13 @@ const closeButtonElement = document.querySelector("#close-button");
 const popup = document.querySelector("#win-popup");
 const popupBackgroundElement = document.querySelector("#popup-background");
 
+//homepage sections
+const homeSectionElement = document.querySelector("#homeSection");
+const gameSectionElement = document.querySelector("#gameSection");
+const welcomeMessageElement = document.querySelector("#welcomeMessage");
+const userNameElement = document.querySelector("#playerName");
+const startGameElement = document.querySelector("#startGameButton");
+
 //defining stuff
 let guessedWord;
 let highScore = 0;
@@ -187,4 +194,17 @@ selectCategoryElement.addEventListener("change", () => {
 closeButtonElement.addEventListener("click", () => {
   popup.style.display = "none";
   popupBackgroundElement.style.display = "none";
+});
+
+// HOME PAGE SECTION: User submits Name
+startGameElement.addEventListener("click", (event) => {
+  event.preventDefault(); //this stops the form from reloading, welcome message remains
+  const name = userNameElement.value;
+
+  welcomeMessageElement.textContent = `Welcome, ${name}!`;
+
+  // homeSectionElement.style.display = "none";
+  // gameSectionElement.style.display = "block";
+  homeSectionElement.classList.add("hidden");
+  gameSectionElement.classList.remove("hidden");
 });
