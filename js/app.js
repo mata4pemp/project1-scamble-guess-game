@@ -240,3 +240,10 @@ startGameElement.addEventListener("click", (event) => {
   homeSectionElement.classList.add("hidden");
   gameSectionElement.classList.remove("hidden");
 });
+
+//when the page reloads, highscore resets to zero
+window.addEventListener("load", () => {
+  highScore = 0; // reset highscore variable to zero
+  highScoreElement.innerText = `Highscore: ${highScore} correct guesses`;
+  localStorage.setItem("score", 0); //also set score to zero
+});
