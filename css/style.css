@@ -25,6 +25,8 @@
   font-size: 30px;
   top: -8px;
   position: relative;
+  background-color: black;
+  color: white;
 }
 
 .hidden {

@@ -125,7 +125,16 @@ timercountdown();
 
 // SUBMIT BUTTON PRESSED: when user types into text input to guess word  -----------------------------------------------------
 submitButtonElement.addEventListener("click", () => {
-  const formInput = guessInputElement.value;
+  //remove whitespace from user input in the form
+  const formInput = guessInputElement.value.trim();
+
+  // if user tries to guess a word that is already guessed previously, give an error
+  if (guessedWordSet.has(guessedWord)) {
+    resultElement.innerText =
+      "You already guessed this word. Press reset new word to generate a new word.";
+    return;
+  }
+
   if (formInput.toLowerCase() === guessedWord.toLowerCase()) {
     resultElement.innerText = "You guessed it correctly! ✅";
 
@@ -213,10 +222,16 @@ closeButtonElement.addEventListener("click", () => {
   popupBackgroundElement.style.display = "none";
 });
 
-// HOME PAGE SECTION: User submits Name
+// HOME PAGE SECTION: User submits Name after pressing submit button
 startGameElement.addEventListener("click", (event) => {
   event.preventDefault(); //this stops the form from reloading, welcome message remains
-  const name = userNameElement.value;
+  const name = userNameElement.value.trim(); //remove whitespace
+
+  //if user does not input any name prevent it from continuing
+  if (name === "") {
+    alert("Please enter your name in the field to proceed");
+    return;
+  }
 
   welcomeMessageElement.textContent = `Welcome, ${name}!`;
 
