@@ -3,7 +3,7 @@ const submitButtonElement = document.querySelector("#submit");
 const refreshButtonElement = document.querySelector("#refresh");
 
 const timerCountdownElement = document.querySelector("#timer");
-const timeisupElement = document.querySelector("#timeisup");
+// const timeisupElement = document.querySelector("#timeisup");
 const resultElement = document.querySelector("#result");
 const scoreElement = document.querySelector("#score");
 const highScoreElement = document.querySelector("#highscore");
@@ -41,7 +41,7 @@ function changeNewWord() {
   //Which category did user select: user selects from animals, countries categories
   const selectedCategory = selectCategoryElement.value;
 
-  //which word list from words.js file is selected
+  //which word list from words.js file is selected, words.js file goes into the selected word list
   let selectedWordList;
   if (selectedCategory === "fruits") {
     selectedWordList = fruits;
@@ -53,7 +53,7 @@ function changeNewWord() {
     selectedWordList = words;
   }
 
-  // filters out the words already guessed in, filter callback function = false, wordObj is removed from array
+  // Available words are the words that users have not guessed, filters out the words already guessed in, filter callback function = false, wordObj word that is guessed alr is removed from array
   const availableWords = selectedWordList.filter(
     (wordObj) => !guessedWordSet.has(wordObj.Word)
   );
@@ -72,10 +72,10 @@ function changeNewWord() {
 
   guessedWordArray = guessedWord.split(""); // split the word into individual letters
 
-  const randomizedWordArray = randomize(guessedWordArray); //randomize the individual letters
+  const randomizedWordArray = randomize(guessedWordArray); //using randomize function below, randomize the individual letters
   console.log(randomizedWordArray);
 
-  //the random letters in an array combine into a string
+  //the random letters in an array combine into a string, so i can display it on screen below
   const randomizedJoinWord = randomizedWordArray.join("");
 
   //display the text on screen
@@ -102,18 +102,19 @@ function randomize(guessedWordArray) {
   return guessedWordArray;
 }
 
-// COUNTDOWN FUNCTION: countdown for for the timer ---------------------------------------------------------------------------------------------------
+// COUNTDOWN FUNCTION: countdown for for the timer, every interval run this function ---------------------------------------------------------------------------------------------------
 
 let timer = 30;
+let timerInterval; // store the set interval ID
 function timercountdown() {
-  setInterval(() => {
+  timerInterval = setInterval(() => {
     timerCountdownElement.innerText = `Time Left To Guess: ${timer}s`;
     timer -= 1;
 
     if (timer < 0) {
-      clearInterval(timer);
+      clearInterval(timerInterval);
       timerCountdownElement.innerText = "Time left To Guess: 0s";
-      timeisupElement.style.visibility = "visible";
+      // timeisupElement.style.visibility = "visible";
     }
   }, 1000);
 }
@@ -200,7 +201,7 @@ addMusicButtonElement.addEventListener("click", () => {
 // REFRESH BUTTON PRESSED: Change a new word
 refreshButtonElement.addEventListener("click", () => {
   guessInputElement.value = ""; //clear the input field first
-  timeisupElement.style.visibility = "hidden";
+  // timeisupElement.style.visibility = "hidden";
   resultElement.innerText = "";
   timer = 30;
 
@@ -210,7 +211,7 @@ refreshButtonElement.addEventListener("click", () => {
 // USER CHANGES WORD CATEGORY: Different word shows up
 selectCategoryElement.addEventListener("change", () => {
   guessInputElement.value = "";
-  timeisupElement.style.visibility = "hidden";
+  // timeisupElement.style.visibility = "hidden";
   resultElement.innerText = "";
   timer = 30;
   changeNewWord();
