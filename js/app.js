@@ -200,10 +200,12 @@ addMusicButtonElement.addEventListener("click", () => {
 
 // REFRESH BUTTON PRESSED: Change a new word
 refreshButtonElement.addEventListener("click", () => {
-  guessInputElement.value = ""; //clear the input field first
-  // timeisupElement.style.visibility = "hidden";
+  guessInputElement.value = ""; // clear input
   resultElement.innerText = "";
-  timer = 30;
+
+  clearInterval(timerInterval); // stop old timer
+  timer = 30; // reset timer value
+  timercountdown();
 
   changeNewWord();
 });
@@ -213,7 +215,9 @@ selectCategoryElement.addEventListener("change", () => {
   guessInputElement.value = "";
   // timeisupElement.style.visibility = "hidden";
   resultElement.innerText = "";
+  clearInterval(timerInterval);
   timer = 30;
+  timercountdown();
   changeNewWord();
 });
 

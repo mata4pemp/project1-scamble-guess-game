@@ -1,4 +1,4 @@
-# project1-scamble-guess-game
+# scamble-guess-game
 
 #Word Scramble Game
 Jonathan Ng
@@ -8,6 +8,9 @@ Unscramble the letters to guess the correct word.
 ---
 
 ## How to Play
+
+Go to the link here:
+https://mata4pemp.github.io/project1-scamble-guess-game/
 
 1. A scrambled word appears at the top of the screen.
 2. You can choose the category of word to choose from
@@ -24,6 +27,10 @@ Unscramble the letters to guess the correct word.
 - HTML
 - CSS
 - JavaScript
+
+Screenshots of the game:
+![Screenshot](/game-screenshot.png)
+![Screenshot](/game-screenshot-2.png)
 
 ---
 
