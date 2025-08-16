@@ -9,8 +9,11 @@ Unscramble the letters to guess the correct word.
 
 ## How to Play
 
-Go to the link here:
-https://mata4pemp.github.io/project1-scamble-guess-game/
+Go to the link here to play the game:
+https://mata4pemp.github.io/scamble-guess-game/
+
+https://mata4pemp.github.io/scamble-guess-game/
+
 
 1. A scrambled word appears at the top of the screen.
 2. You can choose the category of word to choose from
